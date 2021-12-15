@@ -5,6 +5,8 @@ import ExpenseItemPiece from "./ExpenseItemPiece";
 import "./ExpenseItem.css";
 
 function ExpenseItem({ expenses }) {
+  // const [expensesData, setExpensesData] = useState(expenses);
+
   return expenses.map(expense => {
     return (
       <Card className="expense-item" key={expense.id}>

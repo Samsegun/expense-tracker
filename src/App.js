@@ -1,3 +1,5 @@
+import { useState } from "react";
+import NewExpense from "./components/NewExpense/NewExpense";
 import Expenses from "./components/Expenses/Expenses";
 
 function App() {
@@ -28,10 +30,18 @@ function App() {
     },
   ];
 
+  const [list, setList] = useState(expenses);
+
+  const expenseHandler = enteredData => {
+    console.log(enteredData);
+    setList(prevData => prevData.concat(enteredData));
+  };
+
   return (
     <div>
       <h2>Let's get started!!!!!!!!!!!!!</h2>
-      <Expenses expenses={expenses} />
+      <NewExpense onSaveData={expenseHandler} />
+      <Expenses expenses={list} />
     </div>
   );
 }
